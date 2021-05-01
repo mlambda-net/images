@@ -1,0 +1,43 @@
+apiVersion: skaffold/v2beta8
+kind: Config
+
+metadata:
+  name: image
+  
+build:
+  tagPolicy:
+    envTemplate:
+      template: {{.VERSION}}
+      
+  local:
+    push: true
+    useDockerCLI: true
+    
+  artifacts:
+    - image: mlambdanet/image-api
+      context: .
+      docker:
+        dockerfile: Dockerfile
+        
+profiles:
+  - name: QA
+    deploy:
+      helm:
+        releases:
+          - name: api
+            namespace: images
+            chartPath: helm/image
+            valueFiles: [helm/image/values]
+            setValueTemplate:
+              image.tag: "{{.VERSION}}"
+  
+  - name: PROD
+    deploy:
+      helm:
+        releases:
+          - name: api
+            namespace: images
+            chartPath: helm/image
+            valueFiles: [helm/image/values]
+            setValueTemplate:
+              image.tag: "{{.VERSION}}"
