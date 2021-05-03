@@ -7,7 +7,7 @@ metadata:
 build:
   tagPolicy:
     envTemplate:
-      template: {{.VERSION}}
+      template: "{{.VERSION}}"
       
   local:
     push: true
@@ -27,8 +27,8 @@ profiles:
           - name: api
             namespace: images
             chartPath: helm/image
-            valueFiles: [helm/image/values]
-            setValueTemplate:
+            valuesFiles: [helm/image/values.yaml]
+            setValueTemplates:
               image.tag: "{{.VERSION}}"
   
   - name: PROD
@@ -38,6 +38,6 @@ profiles:
           - name: api
             namespace: images
             chartPath: helm/image
-            valueFiles: [helm/image/values]
-            setValueTemplate:
+            valuesFiles: [helm/image/values.yaml]
+            setValueTemplates:
               image.tag: "{{.VERSION}}"

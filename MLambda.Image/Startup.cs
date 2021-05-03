@@ -90,8 +90,6 @@ namespace MLambda.Image
       app.UseSwaggerUI(c =>
       {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MLambda.Image v1");
-
-
       });
       app.UseHttpsRedirection();
       app.UseRouting();
@@ -100,7 +98,8 @@ namespace MLambda.Image
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
-        endpoints.MapHealthChecks("healthz");
+        endpoints.MapHealthChecks("image/healthz");
+        endpoints.MapHealthChecks("image/ready");
       });
     }
   }

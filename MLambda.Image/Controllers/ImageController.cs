@@ -11,7 +11,7 @@ using MLambda.Image.Abstract;
 namespace MLambda.Image.Controllers
 {
   [ApiController]
-  [Route("api/[controller]")]
+  [Route("[controller]")]
   public class ImageController : ControllerBase
   {
     private readonly IImageService service;
