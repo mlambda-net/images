@@ -10,7 +10,7 @@ deploy_dev() {
   export ENV="dev"
   export VERSION="${TAG:-1.0.0}"
   echo "deploying dev version " $VERSION
-  skaffold dev -p QA
+  skaffold run -p QA
 }
 
 deploy_prod() {
