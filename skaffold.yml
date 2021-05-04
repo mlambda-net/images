@@ -27,7 +27,7 @@ profiles:
           - name: api
             namespace: images
             chartPath: helm/image
-            valuesFiles: [helm/image/values.yaml]
+            valuesFiles: [helm/image/values.yaml, helm/image/values.dev.yaml]
             setValueTemplates:
               image.tag: "{{.VERSION}}"
   
@@ -38,6 +38,6 @@ profiles:
           - name: api
             namespace: images
             chartPath: helm/image
-            valuesFiles: [helm/image/values.yaml]
+            valuesFiles: [helm/image/values.yaml, helm/image/values.prod.yaml]
             setValueTemplates:
               image.tag: "{{.VERSION}}"
