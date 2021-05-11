@@ -3,9 +3,10 @@ replicaCount: 2
 ingress:
   enabled: true
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/ingress.class: traefik
     cert-manager.io/cluster-issuer: issuer-prod
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
   hosts:
     - host: api.mitienda.co.cr
       paths:
@@ -28,6 +29,6 @@ resources:
 
 autoscaling:
   enabled: true
-  minReplicas: 3
+  minReplicas: 3  
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
