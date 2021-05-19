@@ -44,7 +44,7 @@ namespace MLambda.Image
           ValidateIssuer = true,
           ValidIssuer = "https://oauth.mitienda.co.cr",
           ValidateIssuerSigningKey = true,
-          ValidateAudience = true,
+          ValidateAudience = false,
           ValidAudiences = new[] {"swagger"},
           IssuerSigningKey =
             new SymmetricSecurityKey(
