@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "image.fullname" . }}
+data:
+  IMAGE_SERVER: "{{.Values.env.server}}"
+  IMAGE_ID:  "{{.Values.env.client_id}}"
+  IMAGE_SECRET: "{{.Values.env.secret}}"
+  

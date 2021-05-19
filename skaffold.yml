@@ -30,6 +30,9 @@ profiles:
             valuesFiles: [helm/image/values.yaml, helm/image/values.dev.yaml]
             setValueTemplates:
               image.tag: "{{.VERSION}}"
+              env.server: "{{.IMAGE_SERVER}}"
+              env.client_id: "{{.IMAGE_ID}}"
+              env.secret: "{{.IMAGE_SECRET}}"
   
   - name: PROD
     deploy:
@@ -41,3 +44,6 @@ profiles:
             valuesFiles: [helm/image/values.yaml, helm/image/values.prod.yaml]
             setValueTemplates:
               image.tag: "{{.VERSION}}"
+              env.server: "{{.IMAGE_SERVER}}"
+              env.client_id: "{{.IMAGE_ID}}"
+              env.secret: "{{.IMAGE_SECRET}}"

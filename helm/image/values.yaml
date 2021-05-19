@@ -4,6 +4,12 @@ image:
   repository: mlambdanet/image-api
   pullPolicy: Always
   tag: "latest"
+  
+
+env:
+  server: ""
+  client_id : ""
+  secret: ""
 
 imagePullSecrets:
   - name: image-pull-secret

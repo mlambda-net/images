@@ -1,5 +1,11 @@
 replicaCount: 2
 
+env:
+  server: ""
+  client_id : ""
+  secret: ""
+
+
 ingress:
   enabled: true
   annotations:
@@ -18,6 +24,7 @@ ingress:
     - secretName: api-tls
       hosts:
         - api.mitienda.co.cr
+
 
 autoscaling:
   enabled: true

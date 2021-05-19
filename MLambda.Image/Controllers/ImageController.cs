@@ -21,7 +21,7 @@ namespace MLambda.Image.Controllers
       this.service = service;
     }
 
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "store_admin")]
     [HttpDelete("{img}")]
     public async Task<bool> Delete(string img)
     {

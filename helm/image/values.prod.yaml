@@ -1,5 +1,11 @@
 replicaCount: 2
 
+env:
+  server: ""
+  client_id : ""
+  secret: ""
+
+
 ingress:
   enabled: true
   annotations:
